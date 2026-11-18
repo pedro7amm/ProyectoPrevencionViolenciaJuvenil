@@ -1,0 +1,6 @@
+@PrevencionVJBackEnd.SI_HostAddress = http://localhost:5037
+
+GET {{PrevencionVJBackEnd.SI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

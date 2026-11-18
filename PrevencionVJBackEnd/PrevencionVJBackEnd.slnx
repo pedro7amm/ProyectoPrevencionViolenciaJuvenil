@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="PrevencionVJBackEnd.BL/PrevencionVJBackEnd.BL.csproj" />
+  <Project Path="PrevencionVJBackEnd.DA/PrevencionVJBackEnd.DA.csproj" />
+  <Project Path="PrevencionVJBackEnd.Model/PrevencionVJBackEnd.Model.csproj" />
+  <Project Path="PrevencionVJBackEnd.SI/PrevencionVJBackEnd.SI.csproj" />
+</Solution>
