@@ -1,7 +1,7 @@
 ﻿-- Conversion del Forward Engineer de MySQL Workbench a Microsoft SQL Server
 -- Proyecto Prevencion de Violencia Juvenil
 -- Ejecutar sobre una instancia nueva; no elimina tablas ni datos existentes.
--- Revision: los nombres del modelo original se conservan (incluido Distito).
+-- Revision: se corrigio el nombre Distrito en todo el esquema.
 IF DB_ID(N'PrevencionJuvenil') IS NULL
     CREATE DATABASE [PrevencionJuvenil];
 GO
@@ -26,14 +26,14 @@ CREATE TABLE [dbo].[Canton] (
 );
 GO
 
-CREATE TABLE [dbo].[Distito] (
-    [idDistito] INT IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Distrito] (
+    [idDistrito] INT IDENTITY(1,1) NOT NULL,
     [descripcion_distrito] NVARCHAR(45) NOT NULL,
     [activo] BIT NOT NULL,
     [codigo_postal] NVARCHAR(12) NOT NULL,
     [Canton_idCanton] INT NOT NULL,
-    CONSTRAINT [PK_Distito] PRIMARY KEY ([idDistito]),
-    CONSTRAINT [fk_Distito_Canton1] FOREIGN KEY ([Canton_idCanton]) REFERENCES [dbo].[Canton] ([idCanton])
+    CONSTRAINT [PK_Distrito] PRIMARY KEY ([idDistrito]),
+    CONSTRAINT [fk_Distrito_Canton1] FOREIGN KEY ([Canton_idCanton]) REFERENCES [dbo].[Canton] ([idCanton])
 );
 GO
 
@@ -60,10 +60,10 @@ CREATE TABLE [dbo].[Direccion] (
     [otras_sennas] NVARCHAR(100) NOT NULL,
     [activo] BIT NOT NULL,
     [tipoDireccion_idcatalogo] INT NOT NULL,
-    [Distito_idDistito1] INT NOT NULL,
+    [Distrito_idDistrito1] INT NOT NULL,
     CONSTRAINT [PK_Direccion] PRIMARY KEY ([idDireccion]),
     CONSTRAINT [fk_DireccionCliente_catalogo1] FOREIGN KEY ([tipoDireccion_idcatalogo]) REFERENCES [dbo].[catalogo] ([idcatalogo]),
-    CONSTRAINT [fk_Direccion_Distito1] FOREIGN KEY ([Distito_idDistito1]) REFERENCES [dbo].[Distito] ([idDistito])
+    CONSTRAINT [fk_Direccion_Distrito1] FOREIGN KEY ([Distrito_idDistrito1]) REFERENCES [dbo].[Distrito] ([idDistrito])
 );
 GO
 
@@ -182,13 +182,13 @@ GO
 
 CREATE INDEX [fk_Canton_Provincia1_idx] ON [dbo].[Canton] ([Provincia_idProvincia]);
 GO
-CREATE INDEX [fk_Distito_Canton1_idx] ON [dbo].[Distito] ([Canton_idCanton]);
+CREATE INDEX [fk_Distrito_Canton1_idx] ON [dbo].[Distrito] ([Canton_idCanton]);
 GO
 CREATE INDEX [fk_catalogo_tipoCatalogo1_idx] ON [dbo].[catalogo] ([tipoCatalogo_idtipoCatalogo]);
 GO
 CREATE INDEX [fk_DireccionCliente_catalogo1_idx] ON [dbo].[Direccion] ([tipoDireccion_idcatalogo]);
 GO
-CREATE INDEX [fk_Direccion_Distito1_idx] ON [dbo].[Direccion] ([Distito_idDistito1]);
+CREATE INDEX [fk_Direccion_Distrito1_idx] ON [dbo].[Direccion] ([Distrito_idDistrito1]);
 GO
 CREATE INDEX [fk_Comunidad_Direccion1_idx] ON [dbo].[Comunidad] ([Direccion_comunidad_idDireccion]);
 GO
