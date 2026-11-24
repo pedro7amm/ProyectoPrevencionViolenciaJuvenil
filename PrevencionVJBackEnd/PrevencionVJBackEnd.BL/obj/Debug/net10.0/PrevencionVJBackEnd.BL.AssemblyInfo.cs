@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrevencionVJBackEnd.BL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e9ae72f7884ca27577e2e4494be8749525e4d00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc9c02fd3f06dca82af0ae685b1cb6a6ac3c88ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrevencionVJBackEnd.BL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrevencionVJBackEnd.BL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
